@@ -1,0 +1,49 @@
+<odoo>
+    <data>
+
+        <report
+            id="report_label_menu"
+            string="Label"
+            model="account.invoice"
+            report_type="qweb-pdf"
+            file="account.invoice"
+            name="vit_invoice_label.label_report"
+            />
+
+        <template id="label_report_document">
+            <t t-call="web.external_layout">
+                <t t-set="doc" t-value="doc.with_context({'lang':doc.partner_id.lang})" />
+                    <div class="page">
+                        <t t-foreach="range(6)" t-as="i">
+                            <t t-call="vit_invoice_label.label"/>
+                        </t>
+                    </div>
+            </t>
+        </template>
+
+        <template id="label_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="vit_invoice_label.label_report_document"
+                        t-lang="doc.partner_id.lang"/>
+                </t>
+            </t>
+        </template>
+
+        <template id="label">
+
+            <div class="card col-4">
+                <div class="card-body">
+                    <span t-field="doc.partner_id"/><br/>
+                    <span t-field="doc.partner_id.street"/>
+                    <span t-field="doc.partner_id.street2"/><br/>
+                    <span t-field="doc.partner_id.city"/><br/>
+                    <span t-field="doc.partner_id.state_id"/>
+                    <span t-field="doc.partner_id.zip"/><br/>
+                    <span t-field="doc.partner_id.country_id"/><br/>
+                </div>
+            </div>
+        </template>
+
+    </data>
+</odoo>
