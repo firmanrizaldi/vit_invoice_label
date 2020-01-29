@@ -32,18 +32,6 @@
 
         <template id="label">
 
-            <!-- <div class="card col-4">
-                <div class="card-body">
-                    <span t-field="doc.partner_id"/><br/>
-                    <span t-field="doc.partner_id.street"/>
-                    <span t-field="doc.partner_id.street2"/><br/>
-                    <span t-field="doc.partner_id.city"/><br/>
-                    <span t-field="doc.partner_id.state_id"/>
-                    <span t-field="doc.partner_id.zip"/><br/>
-                    <span t-field="doc.partner_id.country_id"/><br/>
-                </div>
-            </div> -->
-
             <table class="table table-bordered">
                 <tbody>
                     <tr>
